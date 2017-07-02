@@ -21,6 +21,7 @@
     <string name="dialog_delete">刪除</string>
 
     <!-- Vocabulary -->>
+    <string name="vocabulary_pronunciation_loading">讀取中</string>
     <string name="vocabulary_insert_success">新增成功</string>
     <string name="vocabulary_insert_failed">新增失敗</string>
     <string name="vocabulary_edit_failed">編輯失敗</string>

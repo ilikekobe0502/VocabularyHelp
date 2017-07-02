@@ -4,10 +4,6 @@ import android.database.Cursor;
 
 import java.util.List;
 
-/**
- * Created by neo_mac on 2017/7/1.
- */
-
 public interface ISQLTableTools {
     void close();
 

@@ -79,19 +79,21 @@ public class VocabularyFragment extends BaseFragment implements VocabularyContra
             @Override
             public void onClick() {
 
-                dialog.setOnClickListener(new MyDialog.OnClickListener() {
-                    @Override
-                    public void onClick(View view, boolean success, String message) {
-                        switch (view.getId()) {
-                            case R.id.textView_ok:
-                                if (success)
-                                    mAdapter.setData(mVocabularyDB.getAll());
-                                showMessage(message);
-                                break;
+                if (!dialog.isAdded()) {
+                    dialog.setOnClickListener(new MyDialog.OnClickListener() {
+                        @Override
+                        public void onClick(View view, boolean success, String message) {
+                            switch (view.getId()) {
+                                case R.id.textView_ok:
+                                    if (success)
+                                        mAdapter.setData(mVocabularyDB.getAll());
+                                    showMessage(message);
+                                    break;
+                            }
                         }
-                    }
-                });
-                dialog.show(getActivity().getFragmentManager(), "dialog");
+                    });
+                    dialog.show(getActivity().getFragmentManager(), "dialog");
+                }
             }
         });
 
@@ -102,23 +104,26 @@ public class VocabularyFragment extends BaseFragment implements VocabularyContra
             public void onClick(View view, String word) {
                 switch (view.getId()) {
                     case R.id.imageButton_pronunciation:
-                        if (!TextUtils.isEmpty(word))
+                        if (!TextUtils.isEmpty(word)) {
+                            showMessage(getString(R.string.vocabulary_pronunciation_loading));
                             mPresenter.getPronunciationAPI(word);
-                        else
+                        } else
                             showMessage(getString(R.string.data_error));
                         break;
                     default:
-                        dialog.setData(view.getTag())
-                                .setTitle(getString(R.string.dialog_edit_vocabulary_title))
-                                .setOnClickListener(new MyDialog.OnClickListener() {
-                                    @Override
-                                    public void onClick(View view, boolean success, String message) {
-                                        if (success)
-                                            mAdapter.setData(mVocabularyDB.getAll());
-                                        showMessage(message);
-                                    }
-                                });
-                        dialog.show(getActivity().getFragmentManager(), "dialog");
+                        if (!dialog.isAdded()) {
+                            dialog.setData(view.getTag())
+                                    .setTitle(getString(R.string.dialog_edit_vocabulary_title))
+                                    .setOnClickListener(new MyDialog.OnClickListener() {
+                                        @Override
+                                        public void onClick(View view, boolean success, String message) {
+                                            if (success)
+                                                mAdapter.setData(mVocabularyDB.getAll());
+                                            showMessage(message);
+                                        }
+                                    });
+                            dialog.show(getActivity().getFragmentManager(), "dialog");
+                        }
                         break;
                 }
             }
@@ -126,6 +131,18 @@ public class VocabularyFragment extends BaseFragment implements VocabularyContra
 
         mAdapter.setData(mVocabularyDB.getAll());
         return view;
+    }
+
+    @Override
+    public void onStart() {
+        mVocabularyDB = new VocabularyDB(getContext());
+        super.onStart();
+    }
+
+    @Override
+    public void onDestroy() {
+        mVocabularyDB.close();
+        super.onDestroy();
     }
 
     @Override

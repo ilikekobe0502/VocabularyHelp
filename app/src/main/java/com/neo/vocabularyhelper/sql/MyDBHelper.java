@@ -1,13 +1,8 @@
 package com.neo.vocabularyhelper.sql;
 
 import android.content.Context;
-import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
-/**
- * Created by neo_mac on 2017/7/1.
- */
 
 public class MyDBHelper extends SQLiteOpenHelper {
 

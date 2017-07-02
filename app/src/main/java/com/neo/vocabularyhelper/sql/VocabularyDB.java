@@ -3,16 +3,11 @@ package com.neo.vocabularyhelper.sql;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
-
-/**
- * Created by neo_mac on 2017/7/1.
- */
 
 public class VocabularyDB implements ISQLTableTools {
     public final static String TAG_TABLE_NAME = VocabularyDB.class.getSimpleName();

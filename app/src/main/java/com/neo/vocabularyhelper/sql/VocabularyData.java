@@ -1,9 +1,5 @@
 package com.neo.vocabularyhelper.sql;
 
-/**
- * Created by neo_mac on 2017/7/1.
- */
-
 public class VocabularyData {
     private String id;
     private String vocabulary;

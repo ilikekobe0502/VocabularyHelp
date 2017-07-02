@@ -1,43 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="@dimen/_5sdp"
     android:layout_marginRight="@dimen/_5sdp"
     android:layout_marginTop="@dimen/_10sdp"
     android:background="@android:drawable/dialog_holo_light_frame"
-    android:orientation="vertical"
     android:padding="@dimen/_15sdp">
 
-    <RelativeLayout
+    <TextView
+        android:id="@+id/textView_vocabulary"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/textView_vocabulary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="@dimen/_18ssp" />
-
-        <ImageButton
-            android:id="@+id/imageButton_pronunciation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:background="@drawable/ic_volume_up_black_24dp" />
-    </RelativeLayout>
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/imageButton_pronunciation"
+        android:gravity="center_vertical"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/_18ssp" />
 
     <TextView
         android:id="@+id/textView_translation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true" />
+        android:layout_below="@+id/textView_vocabulary"
+        android:layout_toLeftOf="@+id/imageButton_pronunciation"
+        android:gravity="center_vertical" />
 
     <TextView
         android:id="@+id/textView_example"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true" />
-</LinearLayout>
+        android:layout_below="@+id/textView_translation"
+        android:layout_toLeftOf="@+id/imageButton_pronunciation"
+        android:gravity="center_vertical" />
+
+    <ImageButton
+        android:id="@+id/imageButton_pronunciation"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:background="@drawable/selector"
+        android:scaleType="centerCrop" />
+</RelativeLayout>
