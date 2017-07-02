@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">單字小幫手</string>
+
+    <!-- Comment -->
+    <string name="press_again_left">再點一次離開app</string>
+    <string name="server_error">伺服器錯誤</string>
+    <string name="data_error">資料錯誤</string>
+
+    <!-- menu -->
+    <string name="menu_add">新增單字</string>
+
+    <!-- Dialog -->
+    <string name="dialog_vocabulary_hint">Vocabulary</string>
+    <string name="dialog_translation_hint">Translation</string>
+    <string name="dialog_example_hint">Example</string>
+    <string name="dialog_add_vocabulary_title">新增單字</string>
+    <string name="dialog_edit_vocabulary_title">編輯單字卡</string>
+    <string name="dialog_ok">確定</string>
+    <string name="dialog_cancel">取消</string>
+    <string name="dialog_archive">封存</string>
+    <string name="dialog_delete">刪除</string>
+
+    <!-- Vocabulary -->>
+    <string name="vocabulary_insert_success">新增成功</string>
+    <string name="vocabulary_insert_failed">新增失敗</string>
+    <string name="vocabulary_edit_failed">編輯失敗</string>
+    <string name="vocabulary_edit_success">編輯成功</string>
+    <string name="vocabulary_delete_failed">刪除失敗</string>
+    <string name="vocabulary_delete_success">刪除成功</string>
+    <string name="vocabulary_data_empty_error">查詢不到資料，單字打錯嗎？或者資料庫找不到</string>
+</resources>
